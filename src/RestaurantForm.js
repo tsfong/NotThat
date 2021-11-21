@@ -3,19 +3,12 @@ import React, { useState } from 'react'
 const RestaurantForm = (props) => {
 
     const [place, setPlace] = useState({ name: "", zipcode: ""})
+    const [cuisines, setCuisines] = useState({})
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:4000/restaurants', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(place)
-        })
-        .then(response => response.json())
-        .then(data => setPlace({ name: "", zipcode: ""}))
-        props.getData()
+        console.log(props)
+        props.postRestaurant(place, setPlace)
     }
 
     const handleChange = (e) => {
@@ -26,11 +19,21 @@ const RestaurantForm = (props) => {
         setPlace(copy)
     }
 
+    // const handleCuisineChange = (e) => {
+    //     const value = e.target.value
+    //     // const name = e.target.name
+    //     // const copy = Object.assign({}, cuisines)
+    //     // copy[0] = value
+    //     setCuisines({value})
+    //     console.log(cuisines)
+    // }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" name="name" placeholder="Restaurant" value={place.restaurant}/>
+                <input onChange={handleChange} type="text" name="name" placeholder="Restaurant" value={place.name}/>
                 <input onChange={handleChange} type="text" name="zipcode" placeholder="Zipcode" value={place.zipcode}/>
+                {/* <input onChange={handleCuisineChange} type="text" name="cuisines" placeholder="Cuisines" value={cuisines.value}/> */}
                 <button type="submit">Submit</button>
             </form>
         </div>
