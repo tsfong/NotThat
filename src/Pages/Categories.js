@@ -31,6 +31,10 @@ function foundDuplicate(Arr, InitialItem) {
   return false
 }
 
+const parseString = (string) => {
+  return string.split(/[ ,]+/);  
+}
+
 export default function Categories(props) {
 
     //Cat
@@ -87,12 +91,22 @@ export default function Categories(props) {
       let queryResults = []
 
       props.restaurantData.forEach((restaurant) => {
-        
-        for (let i = 0; i < restaurant.cuisines.length; i++) {
-          let currentCuisineItem = restaurant.cuisines[i].name
 
-          if (currentCuisineItem.search(targetCuisineItem) !== -1) {
-            queryResults.push(restaurant._id)
+        let cuisineList = parseString(restaurant.cuisines[0].name)
+        
+        for (let i = 0; i < cuisineList.length; i++) {
+          let currentCuisineItem = cuisineList[i]
+
+          if (currentCuisineItem === targetCuisineItem) {
+            // console.log(currentCuisineItem, targetCuisineItem)
+            let search = queryResults.find((id) => {
+              // conosle.log(id)
+              return true
+            })
+
+            // restaurant._id
+
+            // console.log(search)
           }
         }
 
@@ -104,24 +118,24 @@ export default function Categories(props) {
     function compileChoices() {
       let restaurantData = props.restaurantData
       let restaurantQuery = []
+      let finalizedQuery = []
 
       myArray.forEach((value) => {
         restaurantQuery = [...restaurantQuery, ...queryRestaurants(value)]
       })
 
-      props.restaurantData.forEach((restaurant) => {
+      // props.restaurantData.forEach((restaurant) => {
 
-        if (foundDuplicate(restaurantQuery, restaurant._id)) {
+      //   if (foundDuplicate(restaurantQuery, restaurant._id)) {
           
-          let removedDupes = removeItemFromArray(restaurantQuery, restaurant._id)
+      //     if (restaurantQuery.length > 1) {
+      //       let removedDupes = removeItemFromArray(restaurantQuery, restaurant._id)
 
-          console.log(removedDupes.length > 1)
-          if (removedDupes.length > 1) {
-            restaurantQuery = removedDupes
-          }
-        }
-        // restaurantQuery = 
-      })
+      //       finalizedQuery = removedDupes
+      //       console.log(restaurantQuery.length,  restaurantQuery, removedDupes)
+      //     }
+      //   }
+      // })
       
 
       console.log(restaurantQuery)

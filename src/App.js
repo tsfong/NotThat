@@ -22,7 +22,6 @@ function foundDuplicate(Arr, InitialItem) {
   return false
 }
 
-// Functions
 const parseString = (string) => {
   return string.split(/[ ,]+/);  
 }
@@ -33,10 +32,6 @@ function App() {
   const [restaurantData, setRestaurantData] = useState([])
 
   // Functions
-  const getRestaurantData = () => {
-    return restaurantData
-  }
-
   const generateCategories = () => {
     // getRestaurants()
     let mergedCuisines = []
