@@ -21,7 +21,9 @@ const RestaurantForm = (props) => {
         // creating an info object to post to the database
         let info = {name: place.name, zipcode: place.zipcode, cuisines: [{name: cuisines}]}
         
-        props.postRestaurant(info, setPlace)
+        if (cuisines !== '' && place.name !== '' && place.zipcode !== '') {
+            props.postRestaurant(info, setPlace)
+        }
     }
 
      // handling the input changes
