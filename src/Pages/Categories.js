@@ -20,6 +20,17 @@ function removeItemFromArray(arr, value) {
     return arr;
   }
 
+function foundDuplicate(Arr, InitialItem) {
+        
+  for (let i = 0; i < Arr.length; i++) {
+      let item = Arr[i]
+      if (InitialItem === item) {
+          return true
+      }
+  }
+  return false
+}
+
 export default function Categories(props) {
 
     //Cat
@@ -72,16 +83,22 @@ export default function Categories(props) {
         console.log(myArray, value)
     }
 
-    function queryRestaurants() {
+    function queryRestaurants(targetCuisineItem) {
       let queryResults = []
 
       props.restaurantData.forEach((restaurant) => {
         
         for (let i = 0; i < restaurant.cuisines.length; i++) {
-          
+          let currentCuisineItem = restaurant.cuisines[i].name
+
+          if (currentCuisineItem.search(targetCuisineItem) !== -1) {
+            queryResults.push(restaurant._id)
+          }
         }
 
       })
+
+      return queryResults
     }
 
     function compileChoices() {
@@ -89,8 +106,25 @@ export default function Categories(props) {
       let restaurantQuery = []
 
       myArray.forEach((value) => {
-        
+        restaurantQuery = [...restaurantQuery, ...queryRestaurants(value)]
       })
+
+      props.restaurantData.forEach((restaurant) => {
+
+        if (foundDuplicate(restaurantQuery, restaurant._id)) {
+          
+          let removedDupes = removeItemFromArray(restaurantQuery, restaurant._id)
+
+          console.log(removedDupes.length > 1)
+          if (removedDupes.length > 1) {
+            restaurantQuery = removedDupes
+          }
+        }
+        // restaurantQuery = 
+      })
+      
+
+      console.log(restaurantQuery)
     }
 
     
