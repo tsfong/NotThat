@@ -56,7 +56,7 @@ function App() {
 
   // CRUD
   const getRestaurants = () => {
-    fetch('http://localhost:4001/restaurants', {
+    fetch('http://localhost:4000/restaurants', {
         method: 'GET'}
         )
         .then((res) => res.json())
@@ -64,7 +64,7 @@ function App() {
   }
 
   const postRestaurant = (restaurant, setPlace) => {
-    fetch('http://localhost:4001/restaurants', {
+    fetch('http://localhost:4000/restaurants', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -78,7 +78,7 @@ function App() {
   }
 
   const putRestaurant = (id, info) => {
-    fetch(`http://localhost:4001/restaurants/${id}`, {
+    fetch(`http://localhost:4000/restaurants/${id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -90,7 +90,7 @@ function App() {
 
   
   const deleteRestaurant = (restaurant) => {
-    fetch(`http://localhost:4001/restaurants/${restaurant}`, {
+    fetch(`http://localhost:4000/restaurants/${restaurant}`, {
             method: 'DELETE',
         })
         .then(data => {getRestaurants()})
