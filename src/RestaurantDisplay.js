@@ -16,7 +16,6 @@ const RestaurantDisplay = (props) => {
 
     const restaurantMap = props.restaurantData.map((value) => {
 
-
         return(
             <PlaceCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
         )

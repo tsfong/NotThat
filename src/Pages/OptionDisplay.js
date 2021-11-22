@@ -1,18 +1,24 @@
 import { useState, useEffect } from "react"
 import OptionCard from '../Components/OptionCard'
 
+import './OptionDisplay.css'
+
 const OptionDisplay = (props) => {
 
-    const restaurantOptionMap = props.restaurantData.map((value) => {
+    console.log(props.currentRestaurants)
+
+    const restaurantOptionMap = props.currentRestaurants.map((value) => {
 
         return(
-            <OptionCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} />
+            <OptionCard value={value} />
         )
     })
 
     return (
-        <div className="restaurant-options">
-            {restaurantOptionMap}
+        <div class="place-card__wrap--outer">
+                <div class="place-card__wrap--inner">
+                    {restaurantOptionMap}
+                </div>
         </div>
     )
 }

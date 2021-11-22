@@ -1,5 +1,6 @@
 // React
 import {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 
 // Styling
 import './Categories.css'
@@ -117,6 +118,7 @@ export default function Categories(props) {
           // setting the current cuisine as a variable
           let currentCuisineItem = cuisineList[i]
 
+          // if the current cuisine ^ is the same as the cuisine we're searching for
           if (currentCuisineItem === targetCuisineItem) {
 
             if (queryResults.indexOf(restaurant._id) === -1) {
@@ -166,9 +168,12 @@ export default function Categories(props) {
           <div className="categories">
             {display}
           </div>
-          <button onClick={compileChoices} className="submit-button">
-            Submit
-          </button>
+
+          <Link to="/options" > 
+            <button onClick={compileChoices} className="submit-button">
+              Submit
+            </button>
+          </Link>
         </div>
     )
 

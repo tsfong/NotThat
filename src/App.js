@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 
 // Components
+import OptionDisplay from './Pages/OptionDisplay';
 import Categories from './Pages/Categories';
 import About from './Pages/About';
 import Home from './Home';
@@ -136,6 +137,10 @@ function App() {
         foundDuplicate={foundDuplicate}
         generateCategories={generateCategories}
         setCurrentRestaurants={setCurrentRestaurants}
+        />}/>
+
+        <Route exact path="/options" element={<OptionDisplay
+        currentRestaurants={currentRestaurants}
         />}/>
       </Routes>
     </div>
