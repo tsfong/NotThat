@@ -33,6 +33,10 @@ function App() {
   const [restaurantData, setRestaurantData] = useState([])
 
   // Functions
+  const getRestaurantData = () => {
+    return restaurantData
+  }
+
   const generateCategories = () => {
     // getRestaurants()
     let mergedCuisines = []
@@ -40,6 +44,7 @@ function App() {
 
     // Looping through all the restaurants to merge the cuisine all into one array
     restaurantData.forEach((restaurant) => {
+        // Getting the cuisine key from the restaurant object
         let cuisineItems = parseString(restaurant.cuisines[0].name)
         mergedCuisines = [...mergedCuisines, ...cuisineItems]
     })
@@ -55,7 +60,7 @@ function App() {
 
   // CRUD
   const getRestaurants = () => {
-    fetch('http://localhost:4000/restaurants', {
+    fetch('http://localhost:4001/restaurants', {
         method: 'GET'}
         )
         .then((res) => res.json())
@@ -63,7 +68,7 @@ function App() {
   }
 
   const postRestaurant = (restaurant, setPlace) => {
-    fetch('http://localhost:4000/restaurants', {
+    fetch('http://localhost:4001/restaurants', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -77,7 +82,7 @@ function App() {
   }
 
   const putRestaurant = (id, info) => {
-    fetch(`http://localhost:4000/restaurants/${id}`, {
+    fetch(`http://localhost:4001/restaurants/${id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -89,7 +94,7 @@ function App() {
 
   
   const deleteRestaurant = (restaurant) => {
-    fetch(`http://localhost:4000/restaurants/${restaurant}`, {
+    fetch(`http://localhost:4001/restaurants/${restaurant}`, {
             method: 'DELETE',
         })
         .then(data => {getRestaurants()})

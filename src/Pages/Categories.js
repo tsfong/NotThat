@@ -72,12 +72,38 @@ export default function Categories(props) {
         console.log(myArray, value)
     }
 
+    function queryRestaurants() {
+      let queryResults = []
+
+      props.restaurantData.forEach((restaurant) => {
+        
+        for (let i = 0; i < restaurant.cuisines.length; i++) {
+          
+        }
+
+      })
+    }
+
+    function compileChoices() {
+      let restaurantData = props.restaurantData
+      let restaurantQuery = []
+
+      myArray.forEach((value) => {
+        
+      })
+    }
+
     
     
 
     return (
-        <div className="categories">
+        <div>
+          <div className="categories">
             {display}
+          </div>
+          <button onClick={compileChoices} className="submit-button">
+            Submit
+          </button>
         </div>
     )
 
