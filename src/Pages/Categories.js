@@ -21,32 +21,44 @@ export default function Categories(props) {
 
     // Functions
     function checkForDupes(InitialItem) {
-        buttons.forEach((item) => {
+        let found = false
+
+        
+        for (var i = 0; i < buttons.length; i++) {
+            let item = buttons[i]
+            console.log(InitialItem, item)
             if (InitialItem === item) {
+                found = true
                 return true
+                break;
             }
-        })
-        return false
+        }
+        return found
     }
 
     // Mapping
     let myCategories = restaurantData.map((restaurant) => {
-        console.log(parseString(restaurant.cuisines[0].name))
+        // console.log(parseString(restaurant.cuisines[0].name))
         
         let cuisineItems = parseString(restaurant.cuisines[0].name)
         
-        cuisineItems.forEach((item) => {
-            if (!checkForDupes) {
-                return
-            }
+        let items = cuisineItems.map((item) => {
+            checkForDupes(item)
+            return (
+                !checkForDupes(item) ? <li>{item}</li> : ''
+            )
+
         })
+
         
         return (
             <div>
-    
+                {items}
             </div>
         )
     })
+
+    // console.log(myCategories)
 
     return (
         <div>
