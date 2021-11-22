@@ -163,6 +163,7 @@ export default function Categories(props) {
 
     return (
         <div>
+          <h3>click what you don't want and hit submit.</h3>
           <div className="categories">
             {display}
           </div>
