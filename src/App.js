@@ -10,13 +10,57 @@ import Categories from './Pages/Categories';
 import About from './Pages/About';
 import Home from './Home';
 
+// Functions
+function foundDuplicate(Arr, InitialItem) {
+        
+  for (var i = 0; i < Arr.length; i++) {
+      let item = Arr[i]
+      if (InitialItem === item) {
+          return true
+      }
+  }
+  return false
+}
+
+// Functions
+const parseString = (string) => {
+  return string.split(/[ ,]+/);  
+}
+
 function App() {
 
   // States
   const [restaurantData, setRestaurantData] = useState([])
 
-
   // Functions
+  const generateCategories = () => {
+    // getRestaurants()
+    let mergedCuisines = []
+    let finalizedCuisineArray = []
+
+    // Looping through all the restaurants to merge the cuisine all into one array
+    restaurantData.forEach((restaurant) => {
+        let cuisineItems = parseString(restaurant.cuisines[0].name)
+        mergedCuisines = [...mergedCuisines, ...cuisineItems]
+    })
+
+    // Stripping the merged arrays from duplicate cuisines
+    mergedCuisines.forEach((item, index) => {
+      if (!foundDuplicate(finalizedCuisineArray, item)) {finalizedCuisineArray.push(item)}
+    })
+
+    // Creating li's from the finalized table with all duplicates removed
+    let duplicatesRemoved = finalizedCuisineArray.map((item, index) => {
+      return (
+        <li>{item}</li>
+      )
+    })
+
+    return duplicatesRemoved
+  }
+
+
+  // CRUD
   const getRestaurants = () => {
     fetch('http://localhost:4000/restaurants', {
         method: 'GET'}
@@ -26,7 +70,6 @@ function App() {
   }
 
   const postRestaurant = (restaurant, setPlace) => {
-    console.log(JSON.stringify(restaurant))
     fetch('http://localhost:4000/restaurants', {
             method: 'POST',
             headers: {
@@ -94,7 +137,10 @@ function App() {
 
         {/* Categories */}
         <Route exact path="/categories" element={<Categories
-        getRestaurants={getRestaurants} restaurantData={restaurantData}
+        getRestaurants={getRestaurants} 
+        restaurantData={restaurantData}
+        foundDuplicate={foundDuplicate}
+        generateCategories={generateCategories}
         />}/>
       </Routes>
     </div>
