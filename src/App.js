@@ -30,6 +30,7 @@ function App() {
 
   // States
   const [restaurantData, setRestaurantData] = useState([])
+  const [currentRestaurants, setCurrentRestaurants] = useState()
 
   // Functions
   const generateCategories = () => {

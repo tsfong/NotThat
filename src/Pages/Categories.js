@@ -62,9 +62,25 @@ export default function Categories(props) {
             })
 
         )
+
+        setCategories(props.generateCategories())
+        
     }, [])
 
     // Functions
+    function getRestaurantById(Id) {
+
+      let restaurantData = props.restaurantData
+
+      for (let i = 0; i < restaurantData.length; i++) {
+        if (restaurantData[i]._id === Id) {
+          return restaurantData[i]
+        }
+      }
+
+
+    }
+
     function triggerRemove(value) {
 
         // Removing the clicked category from the arrays
@@ -84,61 +100,62 @@ export default function Categories(props) {
 
         setDisplay(myCategories)
         setCategories(myArray)
-        console.log(myArray, value)
     }
 
     function queryRestaurants(targetCuisineItem) {
+      // initialize an array 
       let queryResults = []
 
+      // loop through the restaurants to check on whether the `targetCuisineItem` is within the restaurant's cuisine list
       props.restaurantData.forEach((restaurant) => {
 
+        // convert cuisine list to a table *subject to change*
         let cuisineList = parseString(restaurant.cuisines[0].name)
         
+        // cuisine list loop through
         for (let i = 0; i < cuisineList.length; i++) {
+          // setting the current cuisine as a variable
           let currentCuisineItem = cuisineList[i]
 
           if (currentCuisineItem === targetCuisineItem) {
-            // console.log(currentCuisineItem, targetCuisineItem)
-            let search = queryResults.find((id) => {
-              // conosle.log(id)
-              return true
-            })
 
-            // restaurant._id
-
-            // console.log(search)
+            if (queryResults.indexOf(restaurant._id) === -1) {
+              queryResults.push(restaurant._id)
+            }
           }
         }
 
       })
 
+
       return queryResults
     }
 
     function compileChoices() {
-      let restaurantData = props.restaurantData
-      let restaurantQuery = []
-      let finalizedQuery = []
 
-      myArray.forEach((value) => {
-        restaurantQuery = [...restaurantQuery, ...queryRestaurants(value)]
+      // Creating an array to store all the ids
+      let restaurantQuery = []
+      // Creating a queried array for finalized restaurant list
+      let queriedRestaurants = []
+
+
+      // Looping through each nondeleted categories
+      categories.forEach((targetCuisine) => {
+        // searching through the restaurants' cuisines to check for matches with the target cuisine
+        queryRestaurants(targetCuisine).forEach((id) => {
+          // only push the restaurant id if it is not already in the list
+          if (restaurantQuery.indexOf(id) === -1) {
+            restaurantQuery.push(id)
+          }
+        })
       })
 
-      // props.restaurantData.forEach((restaurant) => {
+      restaurantQuery.forEach((Id) => {
+        // query through the restaurants to get them by id
+        queriedRestaurants.push(getRestaurantById(Id))
+      })
 
-      //   if (foundDuplicate(restaurantQuery, restaurant._id)) {
-          
-      //     if (restaurantQuery.length > 1) {
-      //       let removedDupes = removeItemFromArray(restaurantQuery, restaurant._id)
-
-      //       finalizedQuery = removedDupes
-      //       console.log(restaurantQuery.length,  restaurantQuery, removedDupes)
-      //     }
-      //   }
-      // })
-      
-
-      console.log(restaurantQuery)
+      console.log(queriedRestaurants)
     }
 
     
