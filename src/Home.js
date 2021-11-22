@@ -1,4 +1,3 @@
-import RestaurantDisplay from "./RestaurantDisplay"
 import RestaurantForm from "./RestaurantForm"
 
 const Home = (props) => {
@@ -10,7 +9,7 @@ const Home = (props) => {
             getRestaurants={props.getRestaurants}
             postRestaurant={props.postRestaurant}
             />
-            <RestaurantDisplay restaurantData={props.restaurantData} setRestaurantData={props.setRestaurantData} getRestaurants={props.getRestaurants}/>
+    
         </>
     )
 }

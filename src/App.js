@@ -6,7 +6,8 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 
 // Components
-import About from './About';
+import Categories from './Pages/Categories';
+import About from './Pages/About';
 import Home from './Home';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   }
 
   const postRestaurant = (restaurant, setPlace) => {
+    console.log(JSON.stringify(restaurant))
     fetch('http://localhost:4000/restaurants', {
             method: 'POST',
             headers: {
@@ -34,9 +36,29 @@ function App() {
         })
         .then(response => response.json())
         .then(data => setPlace({ name: "", zipcode: ""}))
-
-        getRestaurants()
+        .then(data => {getRestaurants()})
+        
   }
+
+  const putRestaurant = (id, info) => {
+    fetch(`http://localhost:4000/restaurants/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(info)
+        })
+        .then(data => {getRestaurants()})
+  }
+
+  
+  const deleteRestaurant = (restaurant) => {
+    fetch(`http://localhost:4000/restaurants/${restaurant}`, {
+            method: 'DELETE',
+        })
+        .then(data => {getRestaurants()})
+  }
+
 
 
 
@@ -46,9 +68,11 @@ function App() {
         <ul>
           <li><Link to="/" >Home</Link></li>
           <li><Link to="/favorites" >Favorites</Link></li>
+          <li><Link to="/categories">Categories</Link> </li>
         </ul>
       </nav>
       <Routes>
+        {/* Home */}
         <Route path="/"element={<Home 
         restaurantData={restaurantData} 
         setRestaurantData={setRestaurantData} 
@@ -56,7 +80,22 @@ function App() {
         getRestaurants={getRestaurants} 
         postRestaurant={postRestaurant} 
         />}/>
-        <Route exact path="/about" element={<About/>}/>
+
+          {/* Favorites */}
+        <Route exact path="/favorites" element={<About
+        restaurantData={restaurantData} 
+        setRestaurantData={setRestaurantData} 
+        // CRUD Methods
+        getRestaurants={getRestaurants} 
+        postRestaurant={postRestaurant} 
+        putRestaurant={putRestaurant}
+        deleteRestaurant={deleteRestaurant}
+        />}/>
+
+        {/* Categories */}
+        <Route exact path="/categories" element={<Categories
+        getRestaurants={getRestaurants} restaurantData={restaurantData}
+        />}/>
       </Routes>
     </div>
   );

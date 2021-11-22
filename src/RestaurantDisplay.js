@@ -4,14 +4,10 @@ import PlaceCard from "./PlaceCard"
 const RestaurantDisplay = (props) => {
 
 const handleDelete = async (event) => {
-    let selectedRestaurant = event.target.parentNode.children[1].innerHTML
-    selectedRestaurant = selectedRestaurant.replace(/ /g, " ")
-
-    await fetch(`http://localhost:4000/restaurants/${selectedRestaurant}`, {
-            method: 'DELETE',
-        })   
-        props.getRestaurants()    
-    }
+    let selectedRestaurant = event.target.parentNode.children[1].innerHTML // get restaurant id
+    selectedRestaurant = selectedRestaurant.replace(/ /g, " ") // check for spaces
+    props.deleteRestaurant(selectedRestaurant) // delete restaurant
+}
 
 const handleUpdate = () => {
     console.log('updated')
@@ -20,8 +16,9 @@ const handleUpdate = () => {
 
 const restaurantMap = props.restaurantData.map((value) => {
 
+
     return(
-        <PlaceCard getRestaurants={props.getRestaurants} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
+        <PlaceCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
     )
 })
 
