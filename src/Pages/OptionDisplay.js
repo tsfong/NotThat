@@ -3,8 +3,17 @@ import OptionCard from '../Components/OptionCard'
 
 const OptionDisplay = (props) => {
 
+    const restaurantOptionMap = props.restaurantData.map((value) => {
+
+        return(
+            <OptionCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} />
+        )
+    })
+
     return (
-        <OptionCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
+        <div className="restaurant-options">
+            {restaurantOptionMap}
+        </div>
     )
 }
 
