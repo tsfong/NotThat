@@ -6,7 +6,11 @@ import './PlaceCard.css'
 
 // Functions
 const parseString = (string) => {
+    if(!string){
+        return []
+    }else{
     return string.split(/[ ,]+/);  
+    }
 }
 
 // Component
