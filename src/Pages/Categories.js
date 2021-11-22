@@ -138,7 +138,6 @@ export default function Categories(props) {
       // Creating a queried array for finalized restaurant list
       let queriedRestaurants = []
 
-
       // Looping through each nondeleted categories
       categories.forEach((targetCuisine) => {
         // searching through the restaurants' cuisines to check for matches with the target cuisine
@@ -156,6 +155,7 @@ export default function Categories(props) {
       })
 
       console.log(queriedRestaurants)
+      props.setCurrentRestaurants(queriedRestaurants)
     }
 
     

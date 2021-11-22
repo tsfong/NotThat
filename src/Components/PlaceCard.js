@@ -48,24 +48,6 @@ const PlaceCard = (props) => {
     })
 
     return (
-//         <div className="PlaceCard">
-//             {updating ? <form onSubmit={finalizeUpdate}>
-//                 <input onChange={handleEdit} name="name" value={info.name} type="text" placeholder="Restaurant" />
-//                 <input onChange={handleEdit} name="zipcode" value={info.zipcode} type="text" placeholder="Zipcode" />
-//                 <button type="submit">Save</button> 
-//             </form> : <ul>   
-//                 <li>Restaurant: {props.value.name}</li>
-//                 <li>Zipcode: {props.value.zipcode}</li>
-//                 <li>Cuisines: <ul className="cuisine-list"> {CuisineItems} </ul>  </li>
-//             </ul>}
-//             <p className="hide-me">{props.value._id}</p>
-            
-//             {updating ? "" : <button className="update-button" onClick={update}>Update</button>
-// }
-
-//             <button onClick={props.handleDelete}>Delete</button>
-        // </div>
-
         
         <div class="place-card">
             <p className="hide-me">{props.value._id}</p>
