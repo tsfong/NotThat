@@ -1,4 +1,4 @@
-import RestaurantForm from "./RestaurantForm"
+import RestaurantForm from "./Pages/RestaurantForm"
 
 const Home = (props) => {
     return (

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
-import PlaceCard from "./PlaceCard"
+import PlaceCard from "./Components/PlaceCard"
 
 const RestaurantDisplay = (props) => {
 
 const handleDelete = async (event) => {
-    let selectedRestaurant = event.target.parentNode.children[1].innerHTML // get restaurant id
+    let selectedRestaurant = event.target.parentNode.parentNode.children[0].innerHTML // get restaurant id
     selectedRestaurant = selectedRestaurant.replace(/ /g, " ") // check for spaces
     props.deleteRestaurant(selectedRestaurant) // delete restaurant
 }
@@ -29,9 +29,11 @@ useEffect(() => {
     return(
         <>
         <h1>Displayed!</h1>
-        <div>
-            {restaurantMap}
-        </div>
+        <div class="place-card__wrap--outer">
+                <div class="place-card__wrap--inner">
+                    {restaurantMap}
+                </div>
+            </div>
         </>
     )
 }

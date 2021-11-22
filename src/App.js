@@ -13,7 +13,7 @@ import Home from './Home';
 // Functions
 function foundDuplicate(Arr, InitialItem) {
         
-  for (var i = 0; i < Arr.length; i++) {
+  for (let i = 0; i < Arr.length; i++) {
       let item = Arr[i]
       if (InitialItem === item) {
           return true
@@ -49,14 +49,7 @@ function App() {
       if (!foundDuplicate(finalizedCuisineArray, item)) {finalizedCuisineArray.push(item)}
     })
 
-    // Creating li's from the finalized table with all duplicates removed
-    let duplicatesRemoved = finalizedCuisineArray.map((item, index) => {
-      return (
-        <li>{item}</li>
-      )
-    })
-
-    return duplicatesRemoved
+    return finalizedCuisineArray
   }
 
 
@@ -108,7 +101,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <ul>
+        <ul className="navbar">
           <li><Link to="/" >Home</Link></li>
           <li><Link to="/favorites" >Favorites</Link></li>
           <li><Link to="/categories">Categories</Link> </li>

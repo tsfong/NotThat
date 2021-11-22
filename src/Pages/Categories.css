@@ -1,0 +1,9 @@
+.categories {
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.categories button {
+    margin: 0px 20px;
+}

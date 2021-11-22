@@ -1,38 +1,57 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+    display: flex;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+    list-style: none;
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar a {
+    margin: auto 10px;
+    color: white;
+    text-decoration: none;
+    transition: 0.25s;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar a:hover {
+    filter: drop-shadow(0 0 0.5rem #ffffff);
+    transition: 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input:focus {
+    outline: none;
+}
+
+.input-field {
+    background-color: #232323;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 150%;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3636;
+    filter: drop-shadow(0 0 0.5rem #dc3636);
+    color: white;
+    font-size: 150%;
+    padding: 10px 0px;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+    font-size: 150%;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
 }

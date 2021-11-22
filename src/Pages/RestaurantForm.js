@@ -1,6 +1,8 @@
 // React
 import React, { useState } from 'react'
 
+import './RestaurantForm.css'
+
 // Functions
 const parseString = (string) => {
     return string.split(/[ ,]+/);  
@@ -16,11 +18,13 @@ const RestaurantForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        // creating an info object to post to the database
         let info = {name: place.name, zipcode: place.zipcode, cuisines: [{name: cuisines}]}
         
         props.postRestaurant(info, setPlace)
     }
 
+     // handling the input changes
     const handleChange = (e) => {
         const value = e.target.value
         const name = e.target.name
@@ -31,23 +35,20 @@ const RestaurantForm = (props) => {
         setPlace(copy)
     }
 
+    // Setting Cuisine Changes
     const handleCuisineChange = (e) => {
         const value = e.target.value
         const foodArray = parseString(value)
-
-
         setCuisines(value)
-
-        console.log(cuisines)
     }
 
     return (
-        <div>
+        <div className="restaurant-form">
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" name="name" placeholder="Restaurant" value={place.name}/>
-                <input onChange={handleChange} type="text" name="zipcode" placeholder="Zipcode" value={place.zipcode}/>
-                <input onChange={handleCuisineChange} type="text" name="cuisines" placeholder="Cuisines" value={cuisines.value}/>
-                <button type="submit">Submit</button>
+                <input className="input-field" onChange={handleChange} type="text" name="name" placeholder="Restaurant" value={place.name}/>
+                <input className="input-field" onChange={handleChange} type="text" name="zipcode" placeholder="Zipcode" value={place.zipcode}/>
+                <input className="input-field" onChange={handleCuisineChange} type="text" name="cuisines" placeholder="Cuisines" value={cuisines.value}/>
+                <button className="submit-button" type="submit">Submit</button>
             </form>
         </div>
     )
