@@ -6,9 +6,14 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 
 // Components
+import OptionDisplay from './Pages/OptionDisplay';
 import Categories from './Pages/Categories';
 import About from './Pages/About';
 import Home from './Home';
+
+//icons
+import { FaClone, FaHeart, FaHome } from "react-icons/fa";
+
 
 // Functions
 function foundDuplicate(Arr, InitialItem) {
@@ -103,11 +108,14 @@ function App() {
     <div className="App">
       <nav>
         <ul className="navbar">
-          <li><Link to="/" >Home</Link></li>
-          <li><Link to="/favorites" >Favorites</Link></li>
-          <li><Link to="/categories">Categories</Link> </li>
+         
+          <li><Link to="/" ><FaHome/></Link></li>
+          <li><Link to="/favorites" ><FaHeart/></Link></li>
+          <li><Link to="/categories"><FaClone /></Link> </li>
         </ul>
       </nav>
+      <h1>Not That</h1>
+      
       <Routes>
         {/* Home */}
         <Route path="/"element={<Home 
@@ -135,6 +143,11 @@ function App() {
         restaurantData={restaurantData}
         foundDuplicate={foundDuplicate}
         generateCategories={generateCategories}
+        setCurrentRestaurants={setCurrentRestaurants}
+        />}/>
+
+        <Route exact path="/options" element={<OptionDisplay
+        currentRestaurants={currentRestaurants}
         />}/>
       </Routes>
     </div>

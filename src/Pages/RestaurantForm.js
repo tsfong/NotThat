@@ -46,6 +46,7 @@ const RestaurantForm = (props) => {
     }
 
     return (
+    <div className="restaurant-container">
         <div className="restaurant-form">
             <form onSubmit={handleSubmit}>
                 <input className="input-field" onChange={handleChange} type="text" name="name" placeholder="Restaurant" value={place.name}/>
@@ -54,6 +55,7 @@ const RestaurantForm = (props) => {
                 <button className="submit-button" type="submit">Submit</button>
             </form>
         </div>
+    </div>
     )
 
 }

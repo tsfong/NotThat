@@ -1,0 +1,10 @@
+.restaurant-display {
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.place-card__wrap--outer {
+    margin: 10% auto;
+    color: white;
+}
