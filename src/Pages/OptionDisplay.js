@@ -11,44 +11,48 @@ function getRandomElement(items) {
 const OptionDisplay = (props) => {
 
     // States
-    const [options, setOptions] = useState([])
+    const [options, setOptions] = useState([]);
 
     // Functions
     function GenerateOptions() {
 
-        let myOptions = []
+        let limit = 1;
+        let myOptions = [];
         function populateOptions() {
-            let randomElement = getRandomElement(props.currentRestaurants)
+            let randomElement = getRandomElement(props.currentRestaurants);
             if (myOptions.indexOf(randomElement) === -1) {
-                myOptions.push(randomElement)
-                // populateOptions()
+                myOptions.push(randomElement);
+                populateOptions();
             } 
-            // else {
-            //     if (myOptions.length < 3) {
-            //         populateOptions()
-            //     } else {
-            //         console.log(myOptions.length)
-            //         return myOptions
-            //     }  
-            // }
+            else {
+                if (myOptions.length < limit) {
+                    populateOptions();
+                } else {
+                    if (myOptions.length > limit) {myOptions.pop()}
+                    return myOptions
+                }  
+            }
 
             return myOptions
         }
 
-        populateOptions()
+        populateOptions();
 
         return myOptions
     }
 
     function refreshOptions() {
-        setOptions(GenerateOptions())
+
+        let myOptions = GenerateOptions();
+        setOptions(myOptions);
     }
 
 
     useEffect(() => {
 
 
-        setOptions(GenerateOptions())
+        let myOptions = GenerateOptions();
+        setOptions(myOptions);
         
     }, [])
 
