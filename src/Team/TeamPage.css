@@ -1,0 +1,33 @@
+.team-container{
+
+}
+
+.team-card{
+    background-color: #353535;
+    padding: 20px; 
+    border-radius: 20px;
+    margin: 5% 10%;
+    filter: drop-shadow(0 0 0.5rem #0000006e);
+
+}
+
+h2{
+    color: white;
+}
+
+.team-card h3{
+    color:  #dc3636;
+}
+
+li{
+    list-style: none;
+    color: white;
+}
+
+.team-card img{
+    width: 100px;
+    border-radius: 50%;
+}
+
+
+

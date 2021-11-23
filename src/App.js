@@ -10,9 +10,11 @@ import OptionDisplay from './Pages/OptionDisplay';
 import Categories from './Pages/Categories';
 import About from './Pages/About';
 import Home from './Home';
+import TeamPage from './Team/TeamPage';
 
 //icons
 import { FaClone, FaHeart, FaHome } from "react-icons/fa";
+import {IoPeopleSharp} from "react-icons/io5";
 
 
 // Functions
@@ -112,6 +114,8 @@ function App() {
           <li><Link to="/" ><FaHome/></Link></li>
           <li><Link to="/favorites" ><FaHeart/></Link></li>
           <li><Link to="/categories"><FaClone /></Link> </li>
+          <li><Link to="/team"><IoPeopleSharp /></Link> </li>
+          
         </ul>
       </nav>
       <h1>Not That</h1>
@@ -144,6 +148,10 @@ function App() {
         foundDuplicate={foundDuplicate}
         generateCategories={generateCategories}
         setCurrentRestaurants={setCurrentRestaurants}
+        />}/>
+
+        {/* Team*/}
+        <Route exact path="/team" element={<TeamPage
         />}/>
 
         <Route exact path="/options" element={<OptionDisplay
