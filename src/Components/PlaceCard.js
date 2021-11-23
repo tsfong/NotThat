@@ -1,5 +1,5 @@
 // React
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // Styling
 import './PlaceCard.css'
@@ -17,6 +17,7 @@ const PlaceCard = (props) => {
     const [info, setInfo] = useState({ name: "", zipcode: ""})
     const [cuisines, setCuisines] = useState('')
     const id = props.value._id
+    
 
     // Functions
     const update = () => {
@@ -57,6 +58,11 @@ const PlaceCard = (props) => {
             </li>
         )
     })
+
+    useEffect(() => {
+        setInfo({name: props.value.name, zipcode: props.value.zipcode})
+        setCuisines({value: props.value.cuisines[0].name})
+    }, [])
 
     return (
         
