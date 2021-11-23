@@ -11,8 +11,10 @@ div.restaurant-form {
     flex-direction: column;
 }
 
+
+
 .restaurant-container{
-    margin: 10% auto 20% auto;
+    margin: 20% auto;
 }
 
 .restaurant-form form {
