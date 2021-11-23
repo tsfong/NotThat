@@ -62,4 +62,8 @@ input:focus::-webkit-input-placeholder {
     color: transparent;
 }
 
-
+h3 {
+    color: white;
+    font-size: 1em;
+    padding: 0 10%;
+}
