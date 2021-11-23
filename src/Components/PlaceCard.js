@@ -1,5 +1,5 @@
 // React
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // Styling
 import './PlaceCard.css'
@@ -21,6 +21,7 @@ const PlaceCard = (props) => {
     const [info, setInfo] = useState({ name: "", zipcode: ""})
     const [cuisines, setCuisines] = useState('')
     const id = props.value._id
+    
 
     // Functions
     const update = () => {
@@ -50,7 +51,8 @@ const PlaceCard = (props) => {
     const handleCuisineChange = (e) => {
         const value = e.target.value
         const foodArray = parseString(value)
-        setCuisines(value)
+        console.log(value)
+        if (value !== "" || value !== " ") {setCuisines(value)}
     }
 
     let CuisineArray = parseString(props.value.cuisines[0].name)
@@ -62,6 +64,12 @@ const PlaceCard = (props) => {
         )
     })
 
+    useEffect(() => {
+        setInfo({name: props.value.name, zipcode: props.value.zipcode})
+        setCuisines(props.value.cuisines[0].name)
+    }, [])
+
+
     return (
         
         <div class="place-card">
@@ -70,7 +78,7 @@ const PlaceCard = (props) => {
             <form onSubmit={finalizeUpdate}>
                 <input className="place-card-input-field" onChange={handleEdit} name="name" value={info.name} type="text" placeholder="Restaurant" />
                 <input className="place-card-input-field" onChange={handleEdit} name="zipcode" value={info.zipcode} type="text" placeholder="Location" />
-                <input className="place-card-input-field" onChange={handleCuisineChange} name="cuisines" value={cuisines.value} type="text"  placeholder="Cuisines"/>
+                <input className="place-card-input-field" onChange={handleCuisineChange} name="cuisines" value={cuisines} type="text"  placeholder="Cuisines"/>
                 <button type="submit">Save</button>
             </form> : 
             ''
