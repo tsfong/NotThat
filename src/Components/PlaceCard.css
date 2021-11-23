@@ -1,6 +1,13 @@
 h1 {
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
+@font-face {
+    font-family: myFirstFont;
+    src: <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  }
 
 .hide-me {
     display: none;
