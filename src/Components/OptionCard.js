@@ -17,9 +17,9 @@ export default function OptionCard(props) {
     
     return (
         <div class="place-card">
-            <div>Restaurant: {props.value.name}</div>
-            <div>Zipcode: {props.value.zipcode}</div>
-            <div class="flexible">Cuisines: <ul className="cuisine-list"> {CuisineItems} </ul></div>
+            <div className="restaurant-name">{props.value.name}</div>
+            <div className="location">{props.value.zipcode}</div>
+            <div class="flexible"><ul className="cuisine-list"> {CuisineItems} </ul></div>
         </div>
     )
 }
