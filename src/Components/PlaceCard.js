@@ -76,14 +76,14 @@ const PlaceCard = (props) => {
             {updating ? 
             <form onSubmit={finalizeUpdate}>
                 <input className="place-card-input-field" onChange={handleEdit} name="name" value={info.name} type="text" placeholder="Restaurant" />
-                <input className="place-card-input-field" onChange={handleEdit} name="zipcode" value={info.zipcode} type="text" placeholder="Zipcode" />
+                <input className="place-card-input-field" onChange={handleEdit} name="zipcode" value={info.zipcode} type="text" placeholder="Location" />
                 <button type="submit">Save</button> 
             </form> : 
             ''
             }
-            {!updating ? <div>Restaurant: {props.value.name}</div> : ''}
-            {!updating ? <div>Zipcode: {props.value.zipcode}</div> : ''}
-            {!updating ? <div class="flexible">Cuisines: <ul className="cuisine-list"> {CuisineItems} </ul></div> : <div class="flexible"></div>}
+            {!updating ? <div className="restaurant-name">{props.value.name}</div> : ''}
+            {!updating ? <div className="location">{props.value.zipcode}</div> : ''}
+            {!updating ? <div className="flexible"><ul className="cuisine-list">{CuisineItems} </ul></div> : <div class="flexible"></div>}
             <div>{updating ? "" : <button className="update-button" onClick={update}>Update</button>} <button onClick={props.handleDelete}>Delete</button></div>
         </div>
 

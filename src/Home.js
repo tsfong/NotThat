@@ -3,7 +3,7 @@ import RestaurantForm from "./Pages/RestaurantForm"
 const Home = (props) => {
     return (
         <>
-        <p>Tell us about your favorite restaurant </p>
+        <h3>Tell us about your favorite restaurant </h3>
         
             <RestaurantForm 
             restaurantData={props.restaurantData} 
