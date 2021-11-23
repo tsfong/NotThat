@@ -3,28 +3,27 @@ import PlaceCard from "./Components/PlaceCard"
 
 const RestaurantDisplay = (props) => {
 
-const handleDelete = async (event) => {
-    let selectedRestaurant = event.target.parentNode.parentNode.children[0].innerHTML // get restaurant id
-    selectedRestaurant = selectedRestaurant.replace(/ /g, " ") // check for spaces
-    props.deleteRestaurant(selectedRestaurant) // delete restaurant
-}
+    const handleDelete = async (event) => {
+        let selectedRestaurant = event.target.parentNode.parentNode.children[0].innerHTML // get restaurant id
+        selectedRestaurant = selectedRestaurant.replace(/ /g, " ") // check for spaces
+        props.deleteRestaurant(selectedRestaurant) // delete restaurant
+    }
 
-const handleUpdate = () => {
-    console.log('updated')
-}
-
-
-const restaurantMap = props.restaurantData.map((value) => {
+    const handleUpdate = () => {
+        console.log('updated')
+    }
 
 
-    return(
-        <PlaceCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
-    )
-})
+    const restaurantMap = props.restaurantData.map((value) => {
 
-useEffect(() => {
-    props.getRestaurants()
-}, [])
+        return(
+            <PlaceCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
+        )
+    })
+
+    useEffect(() => {
+        props.getRestaurants()
+    }, [])
 
     return(
         <>
