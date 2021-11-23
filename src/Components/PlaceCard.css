@@ -21,6 +21,16 @@ h1 {
 }
 .place-card {
     background-color: #353535;
+<<<<<<< HEAD
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    margin: 0px 20px;
+    padding: 40px;
+
+=======
+>>>>>>> 8b2230062d88e4e762b49f94f2bde74117dd334b
     padding: 20px; 
     border-radius: 20px;
     margin: 5% 10%;
