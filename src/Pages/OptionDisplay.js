@@ -71,7 +71,7 @@ const OptionDisplay = (props) => {
                 </div>
             </div>
 
-            <button onClick={refreshOptions} className='submit-button'>Refresh</button>
+            <button onClick={refreshOptions} className='submit-button submit'>Refresh</button>
         </div>
     )
 }
