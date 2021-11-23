@@ -15,6 +15,7 @@ const PlaceCard = (props) => {
     // States
     const [ updating, setUpdating] = useState(false) 
     const [info, setInfo] = useState({ name: "", zipcode: ""})
+    const [cuisines, setCuisines] = useState('')
     const id = props.value._id
 
     // Functions
@@ -25,17 +26,27 @@ const PlaceCard = (props) => {
     const finalizeUpdate = async (e) => {
         e.preventDefault()
 
+        let infoNew = {name: info.name, zipcode: info.zipcode, cuisines: [{name: cuisines}]}
+
         update() // for setting the ternary boolean
         props.handleUpdate() // just console logs 'updated'
-        props.putRestaurant(id, info) // sending post request
+        props.putRestaurant(id, infoNew) // sending post request
     }
     
+
     const handleEdit = (e) => {
         const value = e.target.value
         const name = e.target.name
         const copy = Object.assign({}, info)
         copy[name] = value
         setInfo(copy)
+    }
+
+    // Setting Cuisine Changes
+    const handleCuisineChange = (e) => {
+        const value = e.target.value
+        const foodArray = parseString(value)
+        setCuisines(value)
     }
 
     let CuisineArray = parseString(props.value.cuisines[0].name)
@@ -55,6 +66,7 @@ const PlaceCard = (props) => {
             <form onSubmit={finalizeUpdate}>
                 <input className="place-card-input-field" onChange={handleEdit} name="name" value={info.name} type="text" placeholder="Restaurant" />
                 <input className="place-card-input-field" onChange={handleEdit} name="zipcode" value={info.zipcode} type="text" placeholder="Zipcode" />
+                <input className="place-card-input-field" onChange={handleCuisineChange} name="cuisines" value={cuisines.value} type="text"  placeholder="Cuisines"/>
                 <button type="submit">Save</button> 
             </form> : 
             ''
