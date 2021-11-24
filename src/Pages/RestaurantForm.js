@@ -50,7 +50,7 @@ const RestaurantForm = (props) => {
         <div className="restaurant-form">
             <form onSubmit={handleSubmit}>
                 <input className="input-field" onChange={handleChange} type="text" name="name" placeholder="Restaurant" value={place.name}/>
-                <input className="input-field" onChange={handleChange} type="text" name="zipcode" placeholder="Zipcode" value={place.zipcode}/>
+                <input className="input-field" onChange={handleChange} type="text" name="zipcode" placeholder="Location" value={place.zipcode}/>
                 <input className="input-field" onChange={handleCuisineChange} type="text" name="cuisines" placeholder="Cuisines" value={cuisines.value}/>
                 <button className="submit-button" type="submit">Submit</button>
             </form>
