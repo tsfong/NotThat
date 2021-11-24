@@ -17,6 +17,8 @@ h2{
 
 .team-card h3{
     color:  #dc3636;
+    margin: 5px auto;
+    font-size: 1.2em;
 }
 
 li{
@@ -27,7 +29,30 @@ li{
 .team-card img{
     width: 100px;
     border-radius: 50%;
+    filter: drop-shadow(0 0 0.5rem #0000006e);
 }
 
 
+@media only screen  and (min-width: 724px) {
+    .team-container {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+        width: 750px;
+    }    
+    .team-card {
+        width: 210px;
+        margin: 5%;
+    }
 
+}
+
+@media only screen  and (min-width: 1024px) {
+    .team-container {
+        width: 900px;
+    }
+    .team-card {
+        width: 250px;
+    }
+}

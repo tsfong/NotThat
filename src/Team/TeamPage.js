@@ -7,15 +7,17 @@ import "./TeamPage.css";
 
 function TeamPage (){
     return(
+        <>
+        <h2>Developer Team</h2>
         <div className="team-container">
             <div className="team-card">
             <img src={TF} alt="pic" />
             <h2>Tiffany Fong</h2>
             <ul>
-                <h3>Passions:</h3>
+                <h3>Passions</h3>
                 <li> Cardio  </li>
                 <li>Cooking</li>
-                <h3>Contribution:</h3>
+                <h3>Contribution</h3>
                 <li>Back-End</li>
                 <li>Concept</li>
             </ul>
@@ -25,10 +27,10 @@ function TeamPage (){
             <img src={MS} alt="pic" />
             <h2>Marco Silva</h2>
             <ul>
-                <h3>Passions:</h3>
+                <h3>Passions</h3>
                 <li>Motorcycles</li>
                 <li>Crypto</li>
-                <h3>Contribution:</h3>
+                <h3>Contribution</h3>
                 <li>Front-End Structure</li>
             </ul>
             </div>
@@ -37,10 +39,10 @@ function TeamPage (){
             <img src={DV} alt="pic" />
             <h2>Diana Villada</h2>
             <ul>
-                <h3>Passions:</h3>
+                <h3>Passions</h3>
                 <li>Yoga</li>
                 <li>Traveling</li>
-                <h3>Contribution:</h3>
+                <h3>Contribution</h3>
                 <li>CSS Styling</li>
                 <li>Front-End Components</li>
             </ul>
@@ -50,16 +52,16 @@ function TeamPage (){
             <img src={TR} alt="pic" />
             <h2>Trendon Robinson</h2>
             <ul>
-                <h3>Passions:</h3>
+                <h3>Passions</h3>
                 <li>Programming</li>
                 <li>Reading</li>
-                <h3>Contribution:</h3>
+                <h3>Contribution</h3>
                 <li>Front-End Functionality</li>
             </ul>
             </div>
 
         </div>
-
+        </>
 
     )
 
