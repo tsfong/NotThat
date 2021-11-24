@@ -108,6 +108,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Not That</h1>
       <nav>
         <ul className="navbar">
          
@@ -118,7 +119,6 @@ function App() {
           
         </ul>
       </nav>
-      <h1>Not That</h1>
       
       <Routes>
         {/* Home */}
