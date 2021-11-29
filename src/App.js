@@ -11,6 +11,7 @@ import Categories from './Pages/Categories';
 import About from './Pages/About';
 import Home from './Home';
 import TeamPage from './Team/TeamPage';
+import apiUrl from './apiConfig';
 
 //icons
 import { FaClone, FaHeart, FaHome } from "react-icons/fa";
@@ -60,10 +61,9 @@ function App() {
     return finalizedCuisineArray
   }
 
-
   // CRUD
   const getRestaurants = () => {
-    fetch('http://localhost:4000/restaurants', {
+    fetch(`${apiUrl}/restaurants`, {
         method: 'GET'}
         )
         .then((res) => res.json())
@@ -71,7 +71,7 @@ function App() {
   }
 
   const postRestaurant = (restaurant, setPlace) => {
-    fetch('http://localhost:4000/restaurants', {
+    fetch(`${apiUrl}/restaurants`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -85,7 +85,7 @@ function App() {
   }
 
   const putRestaurant = (id, info) => {
-    fetch(`http://localhost:4000/restaurants/${id}`, {
+    fetch(`${apiUrl}/restaurants/${id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -97,7 +97,7 @@ function App() {
 
   
   const deleteRestaurant = (restaurant) => {
-    fetch(`http://localhost:4000/restaurants/${restaurant}`, {
+    fetch(`${apiUrl}/restaurants/${restaurant}`, {
             method: 'DELETE',
         })
         .then(data => {getRestaurants()})

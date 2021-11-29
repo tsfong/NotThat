@@ -32,7 +32,7 @@ h1 {
 }
 
 .place-card__wrap--outer {
-    margin: 10% auto;
+    margin: 10px auto;
     color: white;
 }
 
@@ -136,8 +136,5 @@ h1 {
         flex-wrap: wrap;
         justify-content: center;
     } 
-    .place-card__wrap--outer {
-        margin: 10% auto 10px auto;
-        color: white;
-    }
+
 }
