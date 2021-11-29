@@ -24,6 +24,7 @@ const RestaurantForm = (props) => {
         // checking if input fields are blank
         if (cuisines !== '' && place.name !== '' && place.zipcode !== '') {
             props.postRestaurant(info, setPlace)
+            setCuisines('')
         }
     }
 
@@ -51,7 +52,7 @@ const RestaurantForm = (props) => {
             <form onSubmit={handleSubmit}>
                 <input className="input-field" onChange={handleChange} type="text" name="name" placeholder="Restaurant" value={place.name}/>
                 <input className="input-field" onChange={handleChange} type="text" name="zipcode" placeholder="Location" value={place.zipcode}/>
-                <input className="input-field" onChange={handleCuisineChange} type="text" name="cuisines" placeholder="Cuisines" value={cuisines.value}/>
+                <input className="input-field" onChange={handleCuisineChange} type="text" name="cuisines" placeholder="Cuisines" value={cuisines}/>
                 <button className="submit-button" type="submit">Submit</button>
             </form>
         </div>

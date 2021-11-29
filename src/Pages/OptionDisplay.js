@@ -44,6 +44,9 @@ const OptionDisplay = (props) => {
     function refreshOptions() {
 
         let myOptions = GenerateOptions();
+        while (myOptions.length > 1) {
+            myOptions.pop()
+        }
         setOptions(myOptions);
     }
 

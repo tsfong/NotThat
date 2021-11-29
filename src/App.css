@@ -67,3 +67,11 @@ h3 {
     font-size: 1em;
     padding: 0 10%;
 }
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(.96)
+}
