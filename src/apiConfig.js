@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
   // your production api url
-  production: 'https://git.heroku.com/immense-badlands-54158.git',
+  production: 'https://immense-badlands-54158.herokuapp.com',
   // your development api url
   development: 'http://localhost:4000'
 }
