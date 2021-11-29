@@ -1,34 +1,5 @@
 // React
 import {useState, useEffect} from 'react'
-<<<<<<< HEAD
-
-
-export default function Categories(props) {
-
-    // PropInfo
-    const restaurantData = props.restaurantData
-
-    // States
-    const [buttons, setButtons] = useState([])
-
-    // Initial Loading Display
-    useEffect(() => {
-        props.getRestaurants()
-    }, [])
-
-    // Functions
-
-    // Mapping
-    let myCategories = props.generateCategories()
-
-
-
-    console.log(myCategories)
-
-    return (
-        <div>
-            {myCategories}
-=======
 import { Link } from 'react-router-dom'
 
 // Styling
@@ -203,7 +174,6 @@ export default function Categories(props) {
             Submit
           </button>
           </Link>
->>>>>>> marcoTeam
         </div>
     )
 

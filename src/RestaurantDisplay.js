@@ -3,19 +3,11 @@ import PlaceCard from "./Components/PlaceCard"
 
 const RestaurantDisplay = (props) => {
 
-<<<<<<< HEAD
-const handleDelete = async (event) => {
-    let selectedRestaurant = event.target.parentNode.children[1].innerHTML // get restaurant id
-    selectedRestaurant = selectedRestaurant.replace(/ /g, " ") // check for spaces
-    props.deleteRestaurant(selectedRestaurant) // delete restaurant
-}
-=======
     const handleDelete = async (event) => {
         let selectedRestaurant = event.target.parentNode.parentNode.children[0].innerHTML // get restaurant id
         selectedRestaurant = selectedRestaurant.replace(/ /g, " ") // check for spaces
         props.deleteRestaurant(selectedRestaurant) // delete restaurant
     }
->>>>>>> marcoTeam
 
     const handleUpdate = () => {
         console.log('updated')
@@ -24,18 +16,10 @@ const handleDelete = async (event) => {
 
     const restaurantMap = props.restaurantData.map((value) => {
 
-<<<<<<< HEAD
-
-    return(
-        <PlaceCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
-    )
-})
-=======
         return(
             <PlaceCard getRestaurants={props.getRestaurants} putRestaurant={props.putRestaurant} value={value} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
         )
     })
->>>>>>> marcoTeam
 
     useEffect(() => {
         props.getRestaurants()
