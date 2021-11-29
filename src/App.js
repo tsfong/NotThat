@@ -33,23 +33,6 @@ const parseString = (string) => {
   return string.split(/[ ,]+/);  
 }
 
-// Functions
-function foundDuplicate(Arr, InitialItem) {
-        
-  for (var i = 0; i < Arr.length; i++) {
-      let item = Arr[i]
-      if (InitialItem === item) {
-          return true
-      }
-  }
-  return false
-}
-
-// Functions
-const parseString = (string) => {
-  return string.split(/[ ,]+/);  
-}
-
 function App() {
 
   // States
