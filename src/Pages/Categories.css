@@ -1,0 +1,23 @@
+.categories {
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+    flex-wrap: wrap;
+}
+
+.categories button {
+    margin: 10px;
+}
+
+.submit {
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+@media only screen  and (min-width: 724px) {
+    .categories {
+        width: 600px;
+        margin: 0 auto;
+    }    
+
+}
