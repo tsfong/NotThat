@@ -41,27 +41,6 @@ function App() {
   const [currentRestaurants, setCurrentRestaurants] = useState()
 
   // Functions
-  // const generateCategories = () => {
-  //   // getRestaurants()
-  //   let mergedCuisines = []
-  //   let finalizedCuisineArray = []
-
-  //   // Looping through all the restaurants to merge the cuisine all into one array
-  //   restaurantData.forEach((restaurant) => {
-  //       // Getting the cuisine key from the restaurant object
-  //       let cuisineItems = parseString(restaurant.cuisines[0].name)
-  //       mergedCuisines = [...mergedCuisines, ...cuisineItems]
-  //   })
-
-  //   // Stripping the merged arrays from duplicate cuisines
-  //   mergedCuisines.forEach((item, index) => {
-  //     if (!foundDuplicate(finalizedCuisineArray, item)) {finalizedCuisineArray.push(item)}
-  //   })
-
-  //   return finalizedCuisineArray
-  // }
-
-  // Functions
   const generateCategories = () => {
     // getRestaurants()
     let mergedCuisines = []
@@ -69,6 +48,7 @@ function App() {
 
     // Looping through all the restaurants to merge the cuisine all into one array
     restaurantData.forEach((restaurant) => {
+        // Getting the cuisine key from the restaurant object
         let cuisineItems = parseString(restaurant.cuisines[0].name)
         mergedCuisines = [...mergedCuisines, ...cuisineItems]
     })
@@ -78,15 +58,35 @@ function App() {
       if (!foundDuplicate(finalizedCuisineArray, item)) {finalizedCuisineArray.push(item)}
     })
 
-    // Creating li's from the finalized table with all duplicates removed
-    let duplicatesRemoved = finalizedCuisineArray.map((item, index) => {
-      return (
-        <li>{item}</li>
-      )
-    })
-
-    return duplicatesRemoved
+    return finalizedCuisineArray
   }
+
+  // Functions
+  // const generateCategories = () => {
+  //   // getRestaurants()
+  //   let mergedCuisines = []
+  //   let finalizedCuisineArray = []
+
+  //   // Looping through all the restaurants to merge the cuisine all into one array
+  //   restaurantData.forEach((restaurant) => {
+  //       let cuisineItems = parseString(restaurant.cuisines[0].name)
+  //       mergedCuisines = [...mergedCuisines, ...cuisineItems]
+  //   })
+
+  //   // Stripping the merged arrays from duplicate cuisines
+  //   mergedCuisines.forEach((item, index) => {
+  //     if (!foundDuplicate(finalizedCuisineArray, item)) {finalizedCuisineArray.push(item)}
+  //   })
+
+  //   // Creating li's from the finalized table with all duplicates removed
+  //   let duplicatesRemoved = finalizedCuisineArray.map((item, index) => {
+  //     return (
+  //       <li>{item}</li>
+  //     )
+  //   })
+
+  //   return duplicatesRemoved
+  // }
 
   // CRUD
   const getRestaurants = () => {
