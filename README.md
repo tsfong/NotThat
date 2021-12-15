@@ -1,5 +1,6 @@
 # NOT THAT
-Food app
+Food-Deciding App
+
 ## Description
 "What do you want to eat?"
 "Anything."
